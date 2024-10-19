@@ -1,6 +1,6 @@
-const express = require("express") //aqui estou iniciando o expreess
+const express = require("express") //aqui estou iniciando o express
 const router = express.Router() //aqui estou configurando a primeira parte da rota
-const cores = require('cors') //aqui estou trazendo o pacote cors, que permite consumir essa API no frontend
+const cors = require('cors') //aqui estou trazendo o pacote cors, que permite consumir essa API no frontend
 const conectaBancoDeDados = require('./bancoDeDados') //aqui estou ligando ao arquivo banco de dados
 conectaBancoDeDados() //estou chamando a função que conecta o banco de dados
 
@@ -79,8 +79,8 @@ async function deletaMulher(request, response) {
    }
 }
 
-//rotas
-app.use(router.get('/mulheres', mostraMulheres)) //coonfigurei rota GET /mulheres
+//ROTAS
+app.use(router.get('/mulheres', mostraMulheres)) //configurei rota GET /mulheres
 app.use(router.post('/mulheres', criaMulher)) //configurei rota POST /mulheres
 app.use(router.patch('/mulheres/:id', corrigeMulher)) //configurei rota PATCH /mulheres/:id
 app.use(router.delete('/mulheres/:id', deletaMulher)) //configurei rota DELETE /mulheres
